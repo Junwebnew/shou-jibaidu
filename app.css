@@ -1,0 +1,385 @@
+/**
+ * @file index.css
+ * @author Jun
+ */
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{content:"";display:table;clear:both;}
+.n{font-family: 'PingFangSC-Regular,PingFangSC-Light,helvetica neue,hiragino sans gb,arial,microsoft yahei ui,microsoft yahei,simsun,sans-serif'!important;font-weight: 400}
+.text-left{text-align: left}
+.text-right{text-align: right}
+.text-center{text-align: center}
+.col{color: #1587fa !important}.col-hui{color: #888;}.col-r{color:#FF0000 !important}.col-h{color:#000000 !important}
+.col-warn{color:#eaa319 !important}.col-success{color:#35b149 !important}.col-m{color: #1587fa !important}
+.back-fff{background-color: #ffffff !important}.b{font-weight: 700 !important;}
+.btn{
+  background: #1989fa;
+  transition: all .3s;
+  color: #fff;
+  position: relative;
+}
+/* .btn:hover{
+  background: #097df2;
+} */
+.btn_l{
+  border:2rpx solid #dcdcdc;
+  transition: all .3s;
+  color: #333333;
+  background: #fff;
+}
+.btn_l:hover{
+  border:2rpx solid #1989fa;
+  color: #1989fa;
+} 
+.btn:active:after{
+  opacity: .3;
+}
+.btn:after {
+  background-color: #000;
+  content: " ";
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+button{
+	position: relative;
+}
+button:after{
+	position: absolute;
+    border: none;
+	background-color: #000;
+    content: " ";
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+button:active:after {
+    opacity: .3
+}
+.clear:after{
+  content: " ";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both
+}
+.cur,button{
+  cursor: pointer
+}
+.hide {
+  display: none !important;
+}
+.over-hidden{
+	overflow: hidden !important;
+}
+.text-delic {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.text-delic2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical
+}
+
+.text-delic3 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical
+}
+.m0 {
+	margin: 0 !important
+  }
+  
+  .ml16 {
+	margin-left: 32rpx !important
+  }
+  
+  .mr16 {
+	margin-right: 32rpx !important
+  }
+  
+  .ml5 {
+	margin-left: 10rpx !important
+  }
+  
+  .mr5 {
+	margin-right: 10rpx !important
+  }
+  
+  .mr10 {
+	margin-right: 20rpx !important
+  }
+  
+  .ml10 {
+	margin-left: 20rpx !important
+  }
+  
+  .mt5 {
+	margin-top: 10rpx !important
+  }
+  
+  .mt10 {
+	margin-top: 20rpx !important
+  }
+  
+  .mt15 {
+	margin-top: 30rpx !important
+  }
+  
+  .mb5 {
+	margin-bottom: 10rpx !important
+  }
+  .mb8 {
+	margin-bottom: 16rpx !important
+  } 
+  .mb10 {
+	margin-bottom: 20rpx !important
+  }
+  .mb15 {
+	margin-bottom: 30rpx !important
+  }
+  .mb20 {
+	margin-bottom: 40rpx !important
+  }
+  image,img{
+	  vertical-align: middle
+  }
+  .n{
+	  font-family: 'PingFangSC-Regular,PingFangSC-Light,helvetica neue,hiragino sans gb,arial,microsoft yahei ui,microsoft yahei,simsun,sans-serif'!important;
+	  font-weight: 400;
+  }
+  .f24{
+	  font-size: 24rpx !important;
+  }
+  .f26{
+	  font-size: 26rpx !important;
+  }
+  .f28{
+	  font-size: 28rpx !important;
+  }
+  .f30{
+	  font-size: 30rpx !important;
+  }
+/* 滚动条的样式 */
+.ul{            /*//解决ios滚动不流畅 */
+    -webkit-overflow-scrolling : touch
+}
+.scroll-box{overflow: auto;}
+.ul::-webkit-scrollbar,
+.scroll-box::-webkit-scrollbar {
+  width: 2px;
+}
+
+.ul::-webkit-scrollbar-track,
+.scroll-box::-webkit-scrollbar-track {
+  background-color: #eaeaea
+}
+
+.ul::-webkit-scrollbar-thumb,
+.scroll-box::-webkit-scrollbar-thumb {
+  background-color: #55BBFF
+}
+.fixed{
+    position: fixed;
+}
+/* *******************************************新增部分******************************************** */
+/* //高亮的css */
+.higthLight,.texthigthLight{
+  color: #ff0000 !important;
+}
+.w{
+  padding: 0 32rpx;
+  font-size: 28rpx;
+}
+.container{
+	width: 100%;
+}
+
+/* 没有了*/
+.noMore{
+    text-align: center;
+    font-size: 24rpx;
+    color: #888;
+    padding: 0 0 20rpx; 
+}
+/* 覆盖头部样式 */
+.web-swan-title-text{
+    color:#ffffff ;
+}
+/* //阿里图标 */
+@font-face {
+  font-family: 'iconfont';
+  src: url('./until/font/iconfont.eot');
+  src: url('./until/font/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('./until/font/iconfont.woff2') format('woff2'),
+      url('./until/font/iconfont.woff') format('woff'),
+      url('./until/font/iconfont.ttf') format('truetype'),
+      url('./until/font/iconfont.svg#iconfont') format('svg');
+}
+/* @font-face {
+  font-family: 'iconfont';  
+  src: url('//at.alicdn.com/t/font_1790801_5s80hy7bw9c.eot');
+  src: url('//at.alicdn.com/t/font_1790801_5s80hy7bw9c.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1790801_5s80hy7bw9c.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1790801_5s80hy7bw9c.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1790801_5s80hy7bw9c.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1790801_5s80hy7bw9c.svg#iconfont') format('svg');
+} */
+.iconfont {
+  font-family: "iconfont" !important;
+  /* font-size: 16px; */
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ad-parts{
+    background: #ffffff;
+}
+.underline{
+    text-decoration: underline;
+}
+.underline-c{
+    text-decoration: underline;
+    color:#1587fa !important;
+}
+.disline{
+    display: inline;
+}
+.empt{
+	height: 20rpx;
+	background-color: #f2f2f2;
+}
+.copyright{
+	height: 42px;
+    line-height: 42px;
+    font-size: 12px;
+    text-align: center;
+    color: #999;
+}
+/* 标记的颜色 */
+.mark{
+    background: #f58a22;
+    color: #ffffff;
+    padding: 4rpx 6rpx;
+    border-radius: 4rpx;
+    font-size: 20rpx;
+    margin-right: 4rpx;
+}
+.mark.m2{
+    background: #129aee
+}
+.mark.m3{
+    background: #0fcfa9
+}
+.mark.m4{
+    background: #ff5f21 
+}
+.mark.m5{
+    background: #f00
+}
+/* //上下标签，排序的 图标 */
+ .list-icon {
+	display: inline-block;
+	height: 60rpx;
+	width: 40rpx;
+	position: relative;
+	vertical-align: middle;
+  }
+   .list-icon text {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	position: absolute;
+  }
+   .list-icon text.arrow-up {
+	border-color: transparent transparent #d9d9d9;
+	border-width: 0 10rpx 12rpx;
+	top: 12rpx;
+	left: 4rpx;
+  }
+   .list-icon text.arrow-up.active {
+	border-color: transparent transparent #409eff !important;
+  }
+   .list-icon text.arrow-down {
+	border-width: 12rpx 10rpx 0;
+	border-color: #d9d9d9 transparent transparent;
+	top: 28rpx;
+	left: 4rpx;
+  }
+   .list-icon text.arrow-down.active {
+	border-color: #409eff transparent transparent !important;
+  }
+/* //弹框 */
+/* 弹窗 */
+.tc{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	font-size:26rpx;
+	font-family:PingFang SC;
+	font-weight:400;
+	color:rgba(56,55,55,1);
+	line-height:36rpx;
+	background: rgba(0, 0, 0, .4);
+	opacity: 1;
+  }
+  .tc.close{
+	opacity: 1;
+	transform:scale(0);
+  }
+  .tc.close .content{
+	transform:translate(-50%, -50%) scale(0); 
+	opacity: 0;
+  }
+  .zixun{position:fixed;z-index:11;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.7);}
+.zxContent{width:90%;padding:20px;top: 50%;margin:-50% auto 0;box-sizing:border-box;background:#fff;border-radius:10px;text-align:center;position:relative;}
+.zxTit{font:normal 16px 'SimHei';line-height:30px;margin:0;}
+.zxContent .zx-con{
+	overflow: hidden;
+	border:1px solid #ddd;border-radius:5px;font:normal 16px "Microsoft Yahei";
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	text-align: left;
+	margin: 40rpx 0;
+}
+.zxContent .zx-con image{
+	width: 30px;
+	height: 50rpx;
+	float: left;
+}
+.zxText{float: left;width: calc(100% - 40px);margin:0;height:90rpx;}
+.zxBtn{display:block;width:250px;margin:30px auto 0;height:40px; line-height: 40px; border:none;border-radius:30px;font-size:32rpx;background:#1579fa;color:#fff;}
+.closeZx{position:absolute;z-index:12;right:10px;top:15px; width: 32rpx;height: 32rpx;}    
+.closeZx image{ width: 32rpx;height: 32rpx;}  
+.zxContent .desc{
+	margin-top: 20px;
+}
+.zxContent .desc >text{
+	display: inline-block;
+	margin-left: 20px;
+}
+.zxContent .desc >text:first-child{
+	margin: 0;
+}
+.zxContent .desc >text .i{
+	color: #999;
+}
