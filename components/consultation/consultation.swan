@@ -1,0 +1,25 @@
+<!-- 自定义组件内部的模板 (custom.swan) -->
+<view>
+    <view class="fixedNav">
+        <!-- <navigator url="/pages/index/index" s-if='bool != "false" ' class='i-b' open-type='switchTab'>
+            <image src="../../images/home.png" alt="top" mode='widthFix'></image>
+        </navigator>
+        <view bindtap='takeTel' class='i-b'>
+            <image src="../../images/tel.png" alt="top" mode='widthFix'></image>
+        </view> -->
+        <button open-type='contact' bindcontact="contactCB" class="box">
+            <image src="../../images/zixun.png" alt="top" mode='widthFix'></image>
+            <view class="fr words">
+                <view>在线</view>
+                <view>咨询</view>
+            </view>
+        </button>
+        <!-- <view class="box">
+            <image src="../../images/zixun.png" alt="top" mode='widthFix'></image>
+            <view class="fr words">
+                <view>在线</view>
+                <view>咨询</view>
+            </view>
+        </view> -->
+    </view>
+</view>

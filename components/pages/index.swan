@@ -1,0 +1,22 @@
+<!-- 自定义组件内部的模板 (custom.swan) -->
+<view class='paging'>
+	<view class="pagination">
+		<view  class="prev li">
+			<view bindtap='jumpPage' class="a" data-page='1'>首页</view>
+		</view>
+		<view class="prev li">
+			<navigator url='{{upUrl}}' class="a"  s-if='pageNum > 1'>上一页</navigator>
+			<text s-else class='span'>上一页</text>
+		</view>
+		<view class="next li">
+			<navigator url='{{downUrl}}' class="a"  s-if='pageNum < allPage'>下一页</navigator>
+			<text s-else class='span'>下一页</text>
+		</view>
+		<view class="prev li">
+			<text bindtap='jumpPage' class='a'>尾页</text>
+		</view>
+		<view class="li">
+			<text>{{pageNum}}/{{allPage}}页</text>
+		</view>
+	</view>
+</view>

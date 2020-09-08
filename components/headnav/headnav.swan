@@ -1,0 +1,26 @@
+<view class="topbar">
+	<view class="bar-container" style="padding-top:{{statusBarHeight}}px">
+		<view class="bar" style="height:{{navigationBarHeight}}px">
+			<view class="leftBox" style="height:{{navigationBarHeight}}px">
+				<view class="back" s-if='show != "false" && isShowBack ' bindtap="onBackBtnTap">
+					<image src="/images/b.png"></image>
+				</view>
+				<view class="home" s-if=' show != "false" ' bindtap="onHomeBtnTap">
+					<image src="/images/h.png"></image>
+				</view>
+			</view>
+			<view class="title {{show != 'false' ? '' : 'active'  }}" style="font-size:{{titleSize}}px;line-height:{{navigationBarHeight}}px">
+				<!-- <view class="t-l">权明星</view>
+				<view class="t-r">
+					<view>您身边的</view>
+					<view>商标专家</view>
+				</view> -->
+				<image src="/images/logo7.png" style='width:100px' mode='widthFix'></image>
+				<view class="t-r">
+					<view>商标转让平台</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='underlevel' style="height:{{blockHeight}}px"></view>
+</view>

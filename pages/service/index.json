@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "商标分类",
+    "navigationBarTextStyle": "white",
+	"navigationStyle": "custom",
+    "usingComponents": {
+        "consultation": "/components/consultation/consultation",
+		"headnav": "/components/headnav/headnav"
+    }
+}

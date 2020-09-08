@@ -1,0 +1,21 @@
+<!-- index.swan -->
+<view class="orderPage">
+	<view>
+		<view class="head">提交需求后，顾问将在<text class="col-warn">30分钟</text>内联系你</view>
+		<view class="ipt">
+			<view class="t">办理业务：</view>
+			<input value='{=msg.tit=}'   disabled/>
+		</view>
+		<view class="ipt">
+			<view class="t">* 您的称呼：</view>
+			<input data-key='name' bindinput='bindinputFunc'/>
+		</view>
+		<view class="ipt">
+			<view class="t">* 联系方式：</view>
+			<input data-key='tel' type="number" bindinput='bindinputFunc'/>
+		</view>
+		<view class="col-success min"> <i class="iconfont">&#xe68f;</i> 信息保密，杜绝泄露</view>
+		<view class="btnBox btn" bindtap='goSubmit'>提交</view>
+	</view>
+</view>
+<consultation></consultation>

@@ -1,0 +1,63 @@
+<!-- index.swan -->
+<headnav show='false'></headnav>
+<view class="">
+    <view class="classify"  style='height:{{boxHeigt}}px'>
+        <view class="brandName">
+            <!-- <p class="brandHead">商标分类</p> -->
+            <view class="brandKeyWord">
+                <navigator url="/pages/searchPage/index?tag=classify" class="nav-a-box">
+                   <image src="../../images/index/sea.png" alt="" mode='widthFix'></image>
+                    <view class="p text-delic">请输入您想查询的产品/服务分类</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="classifyBox">
+            <view class="c-l">
+                <view s-for='item,idx in tradeList'  class="li {{slectIdx == idx ? 'active' : '' }}">
+                    <view class='a' href="javascript:void(0)" bindtap="slectIdxFunc" data-idx="{{idx}}">
+                        <view class="p">第{{item.firstNum}}类</view>
+                        <view class="p">{{item.tradeName}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="c-r" s-if='allList'>
+                <view class="content-r">
+                    <view class="headBox">
+                        <!-- <view class="h2">{{allList[slectIdx].TradeMarkTypeDto.firstNum}}-{{allList[slectIdx].TradeMarkTypeDto.tradeName}}</view> -->
+                        <navigator class="h2 col" url="/pages/classify/fenlei/index?id={{allList[slectIdx].TradeMarkTypeDto.firstNum}}">
+                            第{{allList[slectIdx].TradeMarkTypeDto.firstNum}}类商标-{{allList[slectIdx].TradeMarkTypeDto.tradeName}}
+                        </navigator>
+                        <rich-text class="div" nodes="{{Jun.strSplit(allList[slectIdx].TradeMarkTypeDto.tradeMarkDescriptionDto,'description')}}"></rich-text>
+                    </view>
+                </view>
+                <view class="two">
+                    <view class="r">
+                        <view class="ul">
+                            <view s-for="item2,idx in allList[slectIdx].fllowList" class="li">
+                                <navigator class="a" url="/pages/classify/classifymin/index?id={{item2.id}}">【{{item2.secondNum}}】{{item2.tradeName}}</navigator>                    
+                                <text class="i"></text>
+                            </view>
+                        </view>
+                    </view>
+                    <rich-text class="l" nodes="{{Jun.strSplit(allList[slectIdx].TradeMarkTypeDto.tradeMarkDescriptionDto,'comment')}}"></rich-text>
+                </view>
+            </view>
+            <view s-else class="c-r"> 
+                <view style="padding:30rpx;text-align:center">  加载中，请稍后...</view>
+            </view>
+        </view>
+    </view>
+  <consultation></consultation>
+   <filter module="Jun">
+        export default {
+            strSplit(obj,key){
+                if(!obj)  return ""
+                let str = obj[key]
+                if(key =='comment'){
+                    return str.replace(/<h3>|<\/h3>/g,"").replace(/\\r\\n/g,"")
+                }
+                return str.replace(/\\r\\n/g,"")
+            },
+        }
+    </filter>
+</view>

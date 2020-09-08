@@ -1,0 +1,60 @@
+<!-- index.swan -->
+<headnav show='false'></headnav>
+<view class="all">
+    <view class="classify"  style='height:{{boxHeigt}}px'>
+        <view class="classifyBox">
+            <view class="c-l">
+                <view s-for='item,idx in navList'  class="li {{slectIdx == idx ? 'active' : '' }}" 
+					bindtap="slectIdxFunc" data-idx="{{idx}}"> 
+					<text class="p">{{item}}</text>
+                </view>
+            </view>
+            <view class="c-r">
+				<!-- //推荐 -->
+				<view class="r-box">
+					<block  s-for='detailArr[slectIdx]'>
+						<view s-if='item.tit' class='min-tit'>{{item.tit}}</view>
+						<view class="item mb10" s-for='item2,idx2 in item.arr' bindtap='goto' data-name='{{item2.name}}'>
+							<view class="item-l">
+								<image src="{{item2.img}}" mode="aspectFit"></image>
+							</view>
+							<view class="item-m">
+								<view class="i-tit">{{item2.name}}</view>
+								<text>{{item2.desc}}</text>
+							</view>
+							<view class="item-r">
+								<text class="price col-r">{{item2.price}}</text>
+							</view>
+						</view>
+					</block>
+					
+					<!-- <view class="item">
+						<view class="item-l">
+							<image src="/images/s3.png" mode="aspectFit"></image>
+						</view>
+						<view class="item-m">
+							<view class="i-tit">商标顾问注册</view>
+							<text>专业顾问一对一服务，全程代办，通过率更高</text>
+						</view>
+						<view class="item-r">
+							<text class="price col-r">￥1299</text>
+						</view>
+					</view>
+					<view class="item">
+						<view class="item-l">
+							<image src="/images/s3.png" mode="aspectFit"></image>
+						</view>
+						<view class="item-m">
+							<view class="i-tit">商标加急注册</view>
+							<text>商标加急提交，避免多耗时被抢注风险</text>
+						</view>
+						<view class="item-r">
+							<text class="price col-r">￥1299</text>
+						</view>
+					</view> -->
+                </view>
+            </view>
+        </view>
+    </view>
+  <consultation></consultation>
+</view>

@@ -1,0 +1,105 @@
+<!-- 自定义组件内部的模板 (custom.swan) -->
+<view class='d sh'>
+	<view class='mask' s-if='show' bindtap='closeDraw'>
+		<view class='left-ico'>
+			<text class='iconfont'>&#xe621;</text>
+		</view>    
+	</view>     
+	<view class='drawBox {{ show ? "show" : ""}}'>
+		<view style='height:{{blockHeight}}px;width:100%'></view>
+		<view class="page-form scroll-box">
+			<view class="ul text-center">
+				<view class="li">
+					<view class="label">
+						商标分类  <text s-if='{{option.t > 0}}' class='selectFlag'>{{option.t}}类</text> 
+					</view> 
+					<view class="page-select-box">
+						<block  s-for='allTags' >
+							<text catchtap='selectOption' data-key='t' data-val = '{{item.tradeMarkTypeCode}}'
+								class="i-a-box text-delic {{option.t== item.tradeMarkTypeCode ? 'active': ''}}" >
+								{{item.tradeMarkTypeCode}}类{{item.tradeMarkTypeName}}
+							</text>
+						</block>
+					</view>
+				</view>
+				<view class="li" s-if='{{option.t > 0}}'>
+					<view class="label">
+						{{option.t}}类子类
+						<!-- <text v-if='seleMinName' class='selectFlag'>{{seleMinName}}类</text> -->
+					</view>
+					<view class="page-select-box">
+						<block s-if='{{allTags[option.t-1] && allTags[option.t-1].bindLabelTypeList}}'>
+							<view class="cate-box-i" s-for='allTags[option.t-1].bindLabelTypeList'>
+			
+								<text class="i-a-box text-delic {{ (option.t2== item.labelTypeCode && !option.t3)  ? 'active': ''}}"  
+									catchtap='selectOption2' data-key='t2' data-val2 = '{{item.labelTypeCode}}'
+									>
+									{{item.labelTypeName}}
+								</text>
+								
+								<text s-for='item2,idx2 in item.hotBindLabelDTOList' 
+									class="i-a-box text-delic  {{ (option.t3 == item2.labelCode) ? 'active': ''}}"
+									catchtap='selectOption2' data-key='t3' data-val2 = '{{item.labelTypeCode}}' data-val3 = '{{item2.labelCode}}'
+									>
+									{{item2.labelName}}
+								</text>
+							</view>
+						</block>
+						<view class='nothing' s-else>暂无小类</view>
+					</view>
+				</view>
+				<view class="li">
+					<view class="label">推荐喜好</view> 
+					<view class="page-select-box">
+						<block s-for='likeTagsArr' >
+							<text class="i-a-box text-delic {{option.h == item.code ?'active':'' }}"
+							catchtap='selectOption' data-key='h' data-val = '{{item.code}}'
+							>
+								{{item.name}}
+							</text>
+						</block>
+					</view>
+				</view>
+				<view class="li">
+					<view class="label">商标字数</view> 
+					<div class="page-select-box">
+						<block s-for='wordNumber' >
+							<text class="i-a-box text-delic {{option.n-1 == index ?'active':'' }}"
+								catchtap='selectOption' data-key='n' data-val='{{index + 1}}'>
+								{{item}}
+							</text>
+						</block>
+					</div>
+				</view>
+				<view class="li">
+					<view class="label">商标类型</view>
+					<div class="page-select-box">
+						<block s-for='tmTypeArr'>
+							<text class="i-a-box text-delic {{option.c-1 == index ?'active':'' }}"
+								catchtap='selectOption' data-key='c' data-val='{{index + 1}}'>
+								{{item}}
+							</text>
+						</block>
+					</div>
+				</view>
+				<view class="li">
+					<view class="label">商标价格(万元)</view>
+					<view class="page-select-box">
+						<view class='num-box'>
+							<input type='number' value='{=option.p1=}' inpubindinput='bindinputFunc' data-key='p1' class='focus' placeholder='最低价'>
+							<text class="ml5 mr5"> 至 </text>
+							<input type='number' value='{=option.p2=}' inpubindinput='bindinputFunc' data-key='p2' class='focus' placeholder='最高价'>
+						</view>
+					</view>
+				</view>
+				<view class='li resetBtn'>
+					<view catchtap='resetFrom' >重置选项</view>
+				</view>
+			</view>
+		</view>
+		<view class='search-btns'>
+			<view class="reset" catchtap='closeDraw'>取消</view>
+			<view class="btn search" catchtap='goSearch' >立即查询</view>
+		</view>
+	</view>   
+</view>

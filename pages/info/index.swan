@@ -1,0 +1,276 @@
+<!-- index.swan -->
+<import-sjs src="../../until/utils.sjs" module="utils" />
+
+<headnav></headnav>
+<view class="infoPage">
+	<view class="Crumbs text-delic">
+		<view class="fl text-delic">
+			<text>位置:</text>
+			<text><a href="/">商标转让</a></text>
+			<text class="ml5 mr5"> > </text>
+			<navigator class="a">{{json.typeOfTrademarkCode}}类商标转让</navigator>
+			<text class="ml5 mr5"> > </text>
+			<text>{{tmName}}第{{json.typeOfTrademarkCode}}类商标转让</text>
+		</view>
+	</view>
+	<view class="tm_n_l parts">
+		<view class="imgBox">
+			<image src="{{utils.getImg(sellJson.trademarkPicId,1)}}" mode='aspectFit'></image>    
+		</view>
+		<view class="operation" >
+			<view class="icon-box eyes" >
+				<image src="/images/eyes.png"></image>
+				{{sellJson.dataHeat || 128}}
+			</view>
+
+			<view class="col-r">
+				<text s-if="{{sellJson.sellingPrice}}">￥{{sellJson.sellingPrice}}</text>
+				<text s-else>{{sellJson.sellingPrice || '面议'}}</text>
+			</view>
+		</view>  
+	</view>
+	<!-- //详情结构 -->
+	<view class="tm_n_r box parts">
+		<view class="h1">
+			<text >{{tmName || '--'}}</text>
+			<view class="markBox">
+				<text s-if="{{myUtils.indexFunc(sellJson.trademarkLike,'1')}}" class='mark m3'>特价</text> 
+				<text s-if="{{myUtils.indexFunc(sellJson.trademarkLike,'2')}}" class='mark m4'>精品</text>
+				<text s-if="{{myUtils.indexFunc(sellJson.trademarkLike,'3')}}" class='mark m5'>好听</text>  
+			</view> 
+		</view>
+		<view class="i">
+			<text class="label">注册号：</text>
+			<view>{{json.trademarkNumber}}</view> 
+		</view>
+		<view class="i">
+			<text class="label">商标类别：</text>
+			<view>{{json.typeOfTrademarkCode}}类{{json.typeOfTrademarkName}}</view> 
+		</view>
+		<view class="i">
+			<text class="label">商标期限：</text>
+			<view>{{json.excBeginDate || sellJson.excBeginDate}}~{{json.excEndDate || sellJson.excBeginDate}}</view>  
+		</view>
+		<view class="i"><text class="label">商标编码：</text><view>R{{json.id}}</view> </view>
+		<view class="i"><text class="label">商标结构：</text><view>{{json.trademarkStructureCn || '--'}}</view> </view>
+		<view class="i"><text class="label">更新时间：</text><view>{{sellJson.dataUpdateDate || '--'}}</view> </view>
+		<view class="i">
+			<text class="label">商品项：</text> 
+			<view class="product-list over-hidden" s-if="json.goodsServices">
+				<view class="list text-delic styleList" s-for='{{myUtils.initServerArr(json.goodsServices)}}'>{{item}}</view>
+			</view>
+		</view>
+	</view>
+	<!-- //咨询框 -->
+	<view class="zixunBtn">
+		<text class='tit'>我对该商标感兴趣</text>
+		<view class="s-box">
+			<input type="number" maxlength="11" placeholder="请输入您的电话"  bindinput='bindinputFunc' confirm-type='search' bindconfirm='leaveMessage'>
+			<view class="button" bindtap='leaveMessage'>打给我</view>
+		</view>
+	</view>
+	<!-- //转让流程 -->
+	<view class="tranferBox">
+		<view class="tm-i-t">
+			<view class="min-t fff">
+				<text class="line-t">转让 流程</text>
+			</view>
+		</view>
+		<view class="flow-box">
+			<view class="li" s-for="stepsArr">
+				<view class="flow-icon">
+					<image src="/images/info/follow-{{index+1}}.png"></image>
+				</view>
+				<view class="text-delic">{{item}}</view>
+				<view class="flow-step" >
+					<text class="span"><text class="i">{{index+1}}</text></text>
+				</view>
+			</view>
+		</view>
+		<view class="more-info">
+			<view class="btn" bindtap='showMoreFunc' data-key='showInfo'>转让流程及常见问题  <image src="/images/info/down.png"></image> </view>
+		</view>
+	</view>
+	<!-- //流程 说明 -->
+	<view s-if='showInfo' class="mb10">
+			<view class="trans-info">
+				<view class="tm-i-t">
+					<view class="min-t"> 
+						<span class="line-t">流程 说明</span>
+					</view>
+				</view>
+				<view class="h6">1、选择商标：</view >
+				<view class="p">挑选并确定目标商标，提交[委托购买需求]，专属客服根据买卖双方意愿进行撮合。</view>
+				<view class="h6">2、订单支付：</view >
+				<view class="p">根据客户，选择并确认下单后，生成购买订单，买家支付相应费用。</view>
+				<view class="h6">3、签订合同：</view >
+				<view class="p">权明星专属客户负责联络居间服务；买卖双方签订转让协议</view>
+				<view class="p">转让方（出售者）：需签署《商标委托出售协议》，并提供商标局发放的《商标注册证》复印件。</view>
+				<view class="p">受让方（购买者）：需签署《商标委托购买协议》，签字盖章后寄回权明星办公地。</view>
+				<view class="h6">4、处理转让：</view >
+				<view class="p"><b>受让方可选择是否进行商标转让公证</b></view>
+				<view class="p">1&gt; 平台提供《转让注册商标申请书》，由转让方（出售者）、受让方（购买者）一式两份签字盖章并寄回；</view>
+				<view class="p">2&gt; 转让方需提供：（个人）身份证正反面复印件/（公司）营业执照复印件、商标公证书给权明星；</view>
+				<view class="p">3&gt; 受让方需提供：（个人）身份证正反面复印件/（公司）营业执照复印件，《商标代理委托书》；</view>
+				<view class="p">4&gt; 权明星在确认收到全部文件后，将文书递交商标局。权明星将商标局收文45天左右同时向转让方与受让方下发该商标的《转让申请受理通知书》，此时转让方可查询到该商标的转让信息；</view>
+				<view class="h6">5、完成转让：</view >
+				<view class="p">6个月左右国家商标总局核准公告并下发《核准转让证明》，商标正式转让完成。</view>
+			</view>
+		<!-- //流程 说明 -->
+			<view class="trans-info">
+				<view class="tm-i-t">
+					<view class="min-t">
+						<span class='line-t'>商标转让常见问题</span>
+					</view>
+				</view>
+				<view class="h6">1问：买了商标后，什么时候能够使用？ </view >
+				<view class="p">答：转让注册商标，3-8个工作日办理好转让手续，获得《商标使用授权书》即日就可以打“R”使用了，转让注册商标核准后，商标局予以公告，受让人自公告之日起享有该商标专用权。</view>
+				<view class="h6">2问：商标转让后，会重新下发商标证书吗？</view >
+				<view class="p">答：不会，商标转让成功后，商标局会下发“商标转让证明”，在使用过程中“商标转让证明”、“商标注册证”一桶进行使用，若想在商标注册证上的名字是自己的，需向商标局提出商标补正申请。</view>
+				<view class="h6">3问：正在申请中的商标能进行转让吗？</view >
+				<view class="p">答：可以，注册中的商标不受法律保护，转让对于受让人来说需承担一定的风险，如果注册成功，自然转让完成，但没有注册成功，那么就是受让人自己的损失了。</view>
+				<view class="h6">4问：商标转让需要什么材料？</view >
+				<view class="p">答：受让方需提供</view>
+				<view class="p">自然人：身份证、个体营业执照</view>
+				<view class="p">企业：营业执照</view>
+				<view class="p">转让方需提供</view>
+				<view class="p">自然人：身份证复印件、商标注册证原件</view>
+				<view class="p">企业：营业执照复印件、商标注册证原件</view>
+				<view class="p">平台需提供：商标转让申请书、商标转让代理委托书、商标转让协议书、商标使用授权书。</view>
+				<view class="h6">5.问：为什么要进行商标转让公证？</view >
+				<view class="p">答：商标转让公证是商标转让过程中，必备的一个环节，主要由商标局对应的地方公证机构，对商标转让行为进行公证，严谨而具有法律效应，商标公证过户，商标局人员会更方便的对商标进行转让审核，未进行公证的商标，往往风险性更高。</view>
+			</view>
+	</view> 
+	<!-- //类别推荐 -->
+	<view class="bfff mb10">
+		<view class="tm-i-t">
+			<view class="min-t">
+				<text class="line-t">{{json.typeOfTrademarkCode}}类 推荐</text>
+			</view>
+		</view>
+		<view class="recommend">
+			<view class="tmbox ul">
+				<view class="li" s-for='jingpinArr'>
+					<navigator url="/pages/info/index?id={{item.id}}">
+						<view class="picBox">
+							<image lazy-load='true' mode='aspectFit' src="{{utils.getImg(item.trademarkPicId)}}"></image>
+						</view>
+						<view class="item-b-box">
+							<view class='text-delic name'>
+								{{item.trademarkName}}
+							</view>
+							<view class="s">
+								<text>{{item.firstNum}}类 {{item.trademarkTypeName}}</text>
+							</view>
+						</view>
+						<view class="bottom-btns">
+							<view class='fl'>
+								<view class="fr f0" s-if='{{item.trademarkLike}}'>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'1')}}"  class='mark m3'>价</text>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'2')}}" class='mark m4'>精</text>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'3')}}" class='mark m5'>听</text>
+								</view>
+							</view>    
+							<view class="fr col-r ">
+								<text s-if="{{item.sellingPrice}}">￥{{item.sellingPrice}}</text>
+								<text s-else>面议</text>        
+							</view>   
+						</view>
+					</navigator>	
+				</view>
+			</view>
+			<view class='switchMore f14'>
+				<button class='btn' bindtap='getAsideTm'> <i class='iconfont f14 mr5'>&#xe649;</i> 换一批</button>
+			</view>
+		</view>
+	</view>
+	<!-- //近似推荐 -->
+	<view class="bfff">
+		<view class="tm-i-t">
+			<view class="min-t">
+				<text class="line-t">近似 推荐</text>
+			</view>
+		</view>
+		<view class="recommend">
+			<view class="tmbox ul">
+				<view class="li" s-for='nearArr'>
+					<navigator url="/pages/info/index?id={{item.id}}">
+						<view class="picBox">
+							<image lazy-load='true'  mode='aspectFit' src="{{utils.getImg(item.trademarkPicId)}}"></image>
+						</view>
+						<view class="item-b-box">
+							<view class='text-delic name'>
+								{{item.trademarkName}}
+							</view>
+							<view class="s">
+								<text>{{item.firstNum}}类 {{item.trademarkTypeName}}</text>
+							</view>
+						</view>
+						<view class="bottom-btns">
+							<view class='fl'>
+								<view class="fr f0" s-if='{{item.trademarkLike}}'>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'1')}}"  class='mark m3'>价</text>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'2')}}" class='mark m4'>精</text>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'3')}}" class='mark m5'>听</text>
+								</view>
+							</view>    
+							<view class="fr col-r ">
+								<text s-if="{{item.sellingPrice}}">￥{{item.sellingPrice}}</text>
+								<text s-else>面议</text>        
+							</view>   
+						</view>
+					</navigator>		
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 咨询弹框 -->
+	<view class="zixunTc zixun" s-if='modeShow'>
+		<view class="zxContent">
+			<view class="closeZx" bindtap='showMoreFunc' data-key='modeShow'><image src="/images/info/zixun_1.png"></image></view>
+			<view class="zxTit">快速获取最新报价</view>
+			
+			<view class="text-left desc">
+				<text><text class="i">商标名：</text>{{json.trademarkName}}</text>
+				<text><text class="i"> 注册号：</text>{{json.trademarkNumber}}</text>
+			</view>
+			<view class="zx-con">
+				<image src="/images/info/zixun_2.png" mode="aspectFit"></image>
+				<input class="zxText"  type="number" maxlength="11" placeholder="请输入手机号码" bindinput='bindinputFunc' confirm-type='search' bindconfirm='leaveMessage'>
+			</view>
+			<view class="zxBtn" bindtap='leaveMessage'>立即获取</view>
+		</view>
+	</view>
+	<!-- 浮动底部 -->
+	<view class='foot-btnBox'>
+		<button class="btn " bindtap='showMoreFunc' data-key='modeShow'>
+			<text class="iconfont mr5">&#xe604;</text>    获取最新报价
+		</button>
+		<button class="btn full" open-type='contact' bindcontact="contactCB">
+			<text class="iconfont mr5">&#xe62c;</text>    在线咨询
+		</button>
+	</view>
+	<view class="copyright" style="height:80px">©版权所有  成都权明星科技有限公司</view>
+</view>
+<!-- 定义SJS -->
+<import-sjs module="myUtils">
+		const initServerArr = function(str){
+
+			str = (str+'').replace(/null/g,"")
+			
+			if(/;,/.test(str)){
+				return str ? str.split(";,") : ["暂无"];
+			}
+			return str ? str.split(",") : ["暂无"];
+		}
+		const indexFunc = function(str,key){
+
+			return (str+'').indexOf(key) != -1
+		}
+
+		export default {
+			initServerArr: initServerArr,
+			indexFunc:indexFunc
+		};
+</import-sjs>
+<consultation></consultation>

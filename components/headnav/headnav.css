@@ -1,0 +1,80 @@
+.intro {
+    margin: 30px;
+    text-align: center;
+}
+/*组件Topbar的样式*/
+
+.topbar .bar-container {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    box-sizing: border-box;
+    background: #1579fa;
+    /* border-bottom: solid 1px #d8d8d8; */
+	color:#ffffff;
+}
+
+.topbar .bar {
+    position: relative;
+    /* background: #1579fa; */
+}
+/* .underlevel{
+	background: #1579fa;
+} */
+.leftBox{
+	position: absolute;
+    /* padding: 6px 13px 6px 0px; */
+    left: 10px;
+    top: 0px;
+    font-size: 0px;
+	display:flex;
+    align-items:center;
+}
+.leftBox .back{
+	margin-right: 26rpx;
+}
+.topbar image {
+    width: 22px;
+    height: 22px;
+}
+
+.topbar .title {
+    color: #ffffff;
+    letter-spacing: 0;
+    text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	height: 100%;
+}
+.topbar .title.active {
+	justify-content: flex-start;
+	margin-left: 10rpx
+}
+.topbar .title::after {
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    margin-top: 1px;
+}
+.title >view{
+	display: inline-block;
+	font-size: 28rpx;
+
+}
+.title .t-l{
+	font-size: 32rpx;
+	
+	font-weight: 700;
+	padding-right:20rpx;
+	margin-right:20rpx;
+}
+.title .t-r{
+	font-size: 26rpx;
+	line-height: 26rpx;
+	border-left: 1px solid #ffffff;
+	padding-left: 10rpx;
+	margin-left: 10rpx;
+}

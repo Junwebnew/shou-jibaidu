@@ -1,0 +1,156 @@
+<!-- index.swan -->
+<import-sjs src="../../until/utils.sjs" module="utils" />
+
+<view class="pageIndex container">
+	<headnav show='false'></headnav>
+	<swiper class="headerBanner" autoplay='true' circular ='true' indicator-dots='true' indicator-active-color='#1579fa' indicator-color='#ffffff'>
+		<swiper-item 
+			s-for="item in bigBanner"
+			item-id="{{item.id}}">
+			<view class="item" style="background-image:url({{item.imgs}})"></view>
+		</swiper-item>
+	</swiper>
+	<!-- //手机搜索盒子 -->
+	<view class="sj-search">
+		<view class="s-box">
+			<text class="iconfont ico">&#xe61a;</text>
+			<input type="text" placeholder="输入关键词如：女装" bindinput='bindinputFunc' confirm-type='search' bindconfirm='goSearch' maxlength='30'>
+			<view class="button" bindtap='goSearch'>搜索</view>
+		</view>
+	</view>
+	<!-- 热门 -->
+	<view class="wap">
+		<view class="tit mb10">
+			热门商标类别
+		</view>
+		<view class='hotTm ul'>
+			<view class="li" s-for="hotTmArr">
+				<navigator url="/pages/list/index?{{item.url}}">
+					<image src="{{item.src}}" lazy-load='true' mode='widthFix'></image>
+					<view class="min">{{item.name}}</view>
+				</navigator>
+			</view>
+		</view>
+	</view>	
+	<view class="wap">
+		<view class="tit">商标转让 特别推荐</view>
+		<view class="tit-2">品质商标，值得拥有</view>
+		<view class="industry-img">
+			<view class="clear ul">
+				<view class="li" s-for='specilArr' >
+					<text class="flag">特推</text>
+					<navigator url="/pages/info/index?id={{item.id}}" class="box">
+						<image lazy-load='true' src="{{utils.getImg(item.trademarkPicId)}}"/></image>  
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="wap">
+		<view class="tit">精品 · 商标</view>
+		<view class="tit-2">品质精品商标，优质品牌首选</view>
+		<view class="recommend">
+			<view class="clear ul">
+				<view class="li" s-for='jingpinArr'>
+					<navigator url="/pages/info/index?id={{item.id}}" class="box">
+						<image lazy-load='true' src="{{utils.getImg(item.trademarkPicId)}}"/></image>  
+					</navigator>		
+					<view class="item-b-box">
+						<view class="name text-delic">
+							{{item.trademarkName}}
+						</view>
+						<view class="s">第{{item.firstNum}}类 {{item.trademarkTypeName}}</view>
+						<!-- <view href="javascript:void(0)" catchTap="$serverTel" class="consultation-btn"></view> -->
+						<button open-type='contact' bindcontact="contactCB" class="consultation-btn">咨询购买</button>
+					</view>
+					
+				</view>
+			</view>
+		</view>
+		<view class="list-more" >
+			<navigator url="/pages/list/index?h=2" class="col text-center">查看更多 >></navigator>
+		</view>
+	</view>
+	<view class="wap">
+		<view class="tit">特价 · 商标</view>
+		<view class="tit-2">限时特价商标，低价好标速抢</view>
+		<view class="recommend">
+			<view class="clear ul">
+				<view class="li" s-for='tuijianArr'>
+					<navigator url="/pages/info/index?id={{item.id}}" class="box">
+						<image lazy-load='true' src="{{utils.getImg(item.trademarkPicId)}}"/></image>  
+					</navigator>		
+						<view class="item-b-box">
+							<view class="name text-delic">
+								{{item.trademarkName}}
+							</view>
+							<view class="s">第{{item.firstNum}}类 {{item.trademarkTypeName}}</view>
+							<button open-type='contact' bindcontact="contactCB" class="consultation-btn">咨询购买</button>
+							<!-- <view href="javascript:void(0)" catchTap="$serverTel" class="consultation-btn">咨询购买</view> -->
+						</view>
+				</view>
+			</view>
+		</view>
+		<view class="list-more" >
+			<navigator url="/pages/list/index?h=1" class="col text-center">查看更多 >></navigator>
+		</view>
+	</view>
+	<view class="wap">
+		<view class="tit">好听 · 商标</view>
+		<view class="tit-2">顺耳好听商标，易于品牌传播</view>
+		<view class="recommend">
+			<view class="clear ul">
+				<view class="li" s-for='haotingArr'>
+					<navigator url="/pages/info/index?id={{item.id}}" class="box">
+						<image lazy-load='true' src="{{utils.getImg(item.trademarkPicId)}}"/></image>  
+					</navigator>		
+						<view class="item-b-box">
+							<view class="name text-delic">
+								{{item.trademarkName}}
+							</view>
+							<view class="s">第{{item.firstNum}}类 {{item.trademarkTypeName}}</view>
+							<button open-type='contact' bindcontact="contactCB" class="consultation-btn">咨询购买</button>
+							<!-- <view href="javascript:void(0)" catchTap="$serverTel" class="consultation-btn">咨询购买</view> -->
+						</view>
+				</view>
+			</view>
+		</view>
+		<view class="list-more" >
+			<navigator url="/pages/list/index?h=3" class="col text-center">查看更多 >></navigator>
+		</view>
+	</view>
+	<!-- //推荐循环板块列表 -->
+	<view  class="more-parts" s-for='mo,mio in listTmbrand'>
+		<view class="parts">
+			<view class="more-tit">
+				<view class="tit-3">
+					{{mo.trademarkLabelTypeName}}
+				</view>
+				<view class="p">
+					<navigator class="a" s-for="cate,idx2 in mo.trademarkLabelName"  url="/pages/list/index?t={{mo.trademarkTypeCode}}&t2={{mo.trademarkLabelTypeCode}}&t3={{mo.trademarkLabelCode[idx2]}}" >{{cate}}</navigator>
+					<navigator url="/pages/list/index?t={{mo.trademarkTypeCode}}&t2={{mo.trademarkLabelTypeCode}}" class="a" class="last">更多></navigator>
+				</view>
+			</view>
+			<view class="recommend">
+				<view class="clear ul">
+					<view class="li" s-for='mo.transactionList'>
+						<navigator url="/pages/info/index?id={{item.id}}" class="box">
+							<image lazy-load='true' src="{{utils.getImg(item.trademarkPicId)}}"/></image>  
+						</navigator>		
+						<view class="item-b-box">
+							<view class="name text-delic">
+								{{item.trademarkName}}
+							</view>
+							<view class="s">第{{item.firstNum}}类 {{item.trademarkTypeName}}</view>
+							<!-- <view  class="consultation-btn">咨询购买</view> -->
+							<button open-type='contact' bindcontact="contactCB" class="consultation-btn">咨询购买</button>
+						</view>
+						
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="copyright">©版权所有  成都权明星科技有限公司</view>
+    <consultation bool='false'></consultation>
+</view>

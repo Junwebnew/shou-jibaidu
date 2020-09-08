@@ -1,0 +1,60 @@
+{
+    "pages": [	
+		"pages/index/index",
+		"pages/service/index",
+		"pages/leavemsg/index",
+		"pages/list/index",
+		"pages/info/index",
+		"pages/cate/index",
+		"pages/tools/index"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#1587fa",
+        "navigationBarTextStyle": "white",
+        "backgroundTextStyle": "light",
+		"disableFontSizeSetting":true
+    },
+	"networkTimeout": {
+        "request": 50000,
+        "connectSocket": 10000,
+        "uploadFile": 120000,
+        "downloadFile": 120000
+    },
+    "tabBar": {
+        "color": "#a2a2a2",
+        "selectedColor": "#3388ff",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "images/footer/icon-footer-sy.png",
+				"selectedIconPath": "images/footer/icon-footer-sy-active.png",
+				"text": "主页"
+			},
+			{
+				"pagePath": "pages/cate/index",
+				"iconPath": "images/footer/icon-footer-gg.png",
+				"selectedIconPath": "images/footer/icon-footer-gg-active.png",
+				"text": "热门分类"
+			},
+			{
+				"pagePath": "pages/service/index",
+				"iconPath": "images/footer/icon-footer-c.png",
+				"selectedIconPath": "images/footer/icon-footer-c-active.png",
+				"text": "商标服务"
+			},
+			{
+				"pagePath": "pages/tools/index",
+				"iconPath": "images/footer/icon-footer-me.png",
+				"selectedIconPath": "images/footer/icon-footer-me-active.png",
+				"text": "商标工具"
+			}
+		]
+    },
+	"dynamicLib": {
+		"myDynamicLib": {
+			"provider": "smart-sc"
+		}
+	}
+}

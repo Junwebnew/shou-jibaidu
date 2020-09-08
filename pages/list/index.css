@@ -1,0 +1,257 @@
+/**
+ * @file index.css
+ * @author Jun
+ */
+ .result{
+	 text-align: center;
+ }
+ .result text{
+	display: inline-block;
+	padding: 20rpx  20rpx 0;
+    color: #a5a5a5;
+    margin: 12rpx auto;
+ }
+ .ul{
+	padding: 20rpx;
+ }
+ .li .m-box{
+	 padding: 1rpx 0;
+	 position: relative;
+ }
+ .li .m-box .notice-num{
+	position: absolute;
+    z-index: 4;
+    text-align: left;
+    font-size: 24rpx;
+    left: 0;
+    color: #a5a5a5;
+    top: 0rpx;
+    width: 120rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+	font-weight: 500;
+ }
+.li .m-box  .brandImg{
+	height: 200rpx;
+	text-align: center;
+	line-height: 200rpx;
+	margin: 20px 10px 10px;
+	font-size: 0
+}
+ .li .brandImg image{
+	width: 100%;
+    height: 100%;
+}
+/* //已选类型 */
+.selected{
+	overflow: hidden
+}
+.selected >view{
+	float: left
+}
+.selected .select-tit{
+	display:inline-block;
+	padding: 4rpx 0px 4px;
+	margin: 5px 0px 5px 0;
+}
+.selected .select-item{
+	display:inline-block;
+	font-size: 12px;
+    padding: 4px 26px 4px 8px;
+    margin: 5px 10px 5px 0;
+    line-height: 1em;
+    height: auto;
+    max-width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+	border-radius: 20px;
+    border: 1px solid #58a3f0;
+    color: #58a3f0;
+}
+.selected .select-item .ico{
+	position: absolute;
+    top: 8rpx;
+    right: 8rpx;
+	font-size: 12px;
+}
+/* 四个分类 */
+.four-box{
+	border-bottom: 4rpx solid #f1f1f1;
+	height: 60rpx;
+	position: relative;
+}
+.four-box >view{
+	float: left;
+	width: 25%;
+	text-align: center;
+	height: 60rpx;
+	line-height: 60rpx;
+	color:#565656;
+}
+.four-box .hideBox{
+	position: absolute;
+	left: 0;
+	top:60rpx;
+	z-index: 10;
+	width: 100%;
+	height: 2000rpx;
+	background: rgba(0,0,0,.3);
+	
+}
+.four-box .hideBox >view{
+	background: #ffffff;
+	border-top: 8rpx solid #f1f1f1;
+	text-align: left;
+	padding: 0 10rpx;
+	min-height: 780rpx;
+}
+.four-box .hideBox >view text{
+	display: inline-block;
+    font-size: 26rpx;
+    margin: 12rpx 4rpc;
+    vertical-align: top;
+	width: 50%;
+	color:#333;
+}
+.four-box .hideBox >view.three text{
+	width: 33.3%
+}
+.four-box .hideBox >view.four text{
+	width: 25%;
+}
+/* //头部搜索 */
+.min-search-up{
+	height: 42px;
+    line-height: 42px;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border: none;
+    margin: 10px 0 5px 0;
+}
+.min-search-up .ss{
+	float: left;
+    display: block;
+    height: 100%;
+	width: 42px;
+	line-height: 36px;
+    text-align: center;
+    font-size: 30px;
+}
+.min-search-up .ss .ico{
+	font-size: 36rpx;
+	color: #999;
+}
+.min-search-up input{
+	float: left;
+    height: 100%;
+	
+	width: calc(100% - 140px);
+    padding-right: 10px;
+    background-color: transparent;
+}
+.min-search-up .btn{
+	float: right;
+    height: 100%;
+	border-radius: 0;
+	width: 80px;
+	background-color: #ff5f21;
+	color: #ffffff;
+	text-align: center;
+}
+/* //列表 */
+.min-h{
+	min-height: 70vh;
+}
+.recommend{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  min-height: 100rpx;
+}
+.recommend .ul{
+  overflow: hidden;
+}
+.recommend .li{
+  float: left;
+  font-size: 24rpx;
+  width: 49%;
+  margin: 0 2% 20rpx 0;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+.recommend .li:nth-child(2n){
+  margin-right: 0;
+}
+.recommend .li image{
+   width: 100%;
+   height:230rpx;
+}
+.recommend .li .item-b-box{
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+.recommend .li .item-b-box .name{
+  font-size: 28rpx;
+  color: #666;
+  font-weight: 700;
+  margin: 20rpx 0;
+}
+
+.recommend .li .item-b-box .s{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 24rpx;
+}
+.recommend .li .item-b-box .consultation-btn{
+  display: block;
+  color: #1579fa;
+  border-radius: 22rpx;
+  border: 1px solid #1579fa;
+  line-height: 48rpx;
+  width: 144rpx;
+  height: 48rpx;
+  margin: 16rpx auto auto;
+  font-size: 24rpx;
+  transition: all .3s ease;
+}
+.recommend .bottom-btns{
+  overflow: hidden;
+  padding: 0 20rpx 20rpx;
+}
+/* 介绍 */
+.bottom-banner{
+	background: url(https://sbzr.qmxip.com/_nuxt/assets/images/list/ad.png) center center no-repeat;
+    background-size: auto 100%;
+    min-height: 320rpx;
+    text-align: center;
+    color: #fff;
+	position: relative;
+	padding: 40rpx 0;
+}
+.bottom-banner:after{
+	content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+}
+.bottom-banner .h3{
+	font-size: 40rpx;
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 20rpx;
+}
+.bottom-banner .text{
+	margin: auto;
+    color: #fff;
+	font-size: 28rpx;
+    padding: 20rpx;
+    text-align: left;
+    line-height: 44rpx;
+    width: 92%;
+}

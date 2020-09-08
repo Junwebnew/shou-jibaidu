@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "列表",
+	"navigationBarTextStyle": "white",
+	"navigationStyle": "custom",
+    "usingComponents": {
+        "consultation": "/components/consultation/consultation",
+		"draw": "/components/draw/draw",
+		"headnav": "/components/headnav/headnav",
+		"pages": "/components/pages/index"
+    }
+}

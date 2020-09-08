@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "需求提交",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+        "consultation": "/components/consultation/consultation"
+    }
+}

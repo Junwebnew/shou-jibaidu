@@ -1,0 +1,78 @@
+/**
+ * @file index.css
+ * @author Jun
+ */
+ page{
+	background: #ffffff;
+	font-family: PingFangSC-Medium,PingFang SC;
+ }
+.headBox{
+	background: linear-gradient(to bottom,#1579fa,#3998fc);
+	height:300rpx;
+	padding:50rpx 30rpx 30rpx;
+	border-radius: 0 0 80rpx 80rpx;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.headBox .head{
+	width: 120rpx;
+	height: 120rpx;
+	background: #ffffff;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 120rpx;
+	font-size: 60rpx;
+	color:#eaeaea;
+	margin-right:30rpx ;
+}
+.headBox .head image{
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+.headBox .words{
+	color: #ffffff;
+	font-size: 40rpx;
+}
+.headBox  .autoName{
+	position: absolute;
+	right: 30rpx;
+	top: 30rpx;
+	color: #ffffff;
+	display: inline;
+	padding: 0;
+	line-height: 1.1em;
+	font-size: 26rpx;
+	background-color: transparent;
+}
+.headBox  .autoName text{
+	margin-right: 6rpx;
+	font-size: 32rpx;
+}
+.line{
+	padding: 0 50rpx;
+	margin-top: 100rpx;
+}
+.item{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30rpx 0;
+	border-bottom: 2rpx solid #eaeaea;
+}
+.item >view{
+	display: flex;
+	align-items: center;
+	color:#565656
+}
+.item >view .label{
+	font-size: 40rpx;
+	margin-right: 30rpx;
+	color:#1579fa;
+}
+.item .right{
+	color:#999
+}

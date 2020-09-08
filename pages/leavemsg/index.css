@@ -1,0 +1,44 @@
+/**
+ * @file index.css
+ * @author Jun
+ */
+
+ .orderPage{
+	min-height: 100vh;
+	background-color: #ffffff;
+	padding-top: 60rpx;
+ }
+ .orderPage >view{
+	 width: 86%;
+	 margin: auto;
+	 color: #333;
+ }
+ .head{
+	 margin-bottom: 60rpx;
+ }
+ .ipt{
+	 display: flex;
+	 align-items: center;
+	 justify-self: start;
+	 height: 100rpx;
+	 line-height: 100rpx;
+	 background-color: #f1f1f1;
+	 margin-top: 30rpx;
+	 border-radius: 4rpx;
+ }
+ .ipt .t{
+	 width: 200rpx;
+	 text-align: right;
+	 color: #878787;
+ }
+ .min{
+	 margin: 60rpx 0 0 0;
+ }
+ .btnBox{
+	 width: 100%;
+	 height: 88rpx;
+	 text-align: center;
+	 line-height: 88rpx;
+	 border-radius: 4rpx;
+	 margin-top: 20rpx;
+ }

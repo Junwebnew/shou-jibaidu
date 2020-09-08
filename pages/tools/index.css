@@ -1,0 +1,150 @@
+/**
+ * @file index.css
+ * @author Jun
+ */
+ .classify{
+  font-size: 26rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  /* background: #eaeaea */
+}
+.classify .brandName{
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+}
+.classify .brandKeyWord{
+  width: 100%;
+  margin: 0;
+  height: 80rpx;
+  float: inherit;
+}
+.classify .brandKeyWord .p{
+  line-height: 80rpx;
+  padding-left: 60rpx;
+}
+.classify .brandKeyWord image{
+  margin-top: 20rpx;
+}
+.classifyBox{
+  float: left;
+  height: calc(100% - 120rpx);
+  background: #f1f1f1;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #e1e1e1;
+}
+.classifyBox .c-l{
+  float: left;
+  width: 26%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.classifyBox .c-l::-webkit-scrollbar {
+  width: 0px;
+  overflow: hidden;
+}
+.classifyBox .c-l .li{
+  height: 126rpx;
+  line-height: 126rpx;
+  text-align: center;
+  background: #f6f6f6;
+  border-bottom: 1px solid #e1e1e1;
+  border-left: 4rpx solid #f6f6f6;
+}
+.classifyBox .c-l .li a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #666;
+  font-size: 26rpx;
+}
+.classifyBox .c-l .li .a .p{
+  line-height: 36rpx;
+  font-size: 26rpx;
+}
+.classifyBox .c-l .li .a .p:first-child {
+  padding-top: 26rpx;
+}
+.classifyBox .c-l .li.active{
+  border-left: 4rpx solid #1587fa;
+  background: #fff;
+}
+.classifyBox .c-l .li.active .a{
+  color: #1587fa;
+}
+.classifyBox .c-r{
+  float: left;
+  width: 74%;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+.classifyBox .c-r::-webkit-scrollbar {
+  width: 0px;
+  overflow: hidden;
+}
+.c-r .content-r .headBox{
+  background: #edf6ff;
+  border-radius: 8rpx;
+  padding: 12rpx;
+  color: #333;
+}
+.c-r .content-r .headBox .h2{
+  font-size: 28rpx;
+  text-align: center;
+  padding: 4rpx 0 20rpx;
+  font-weight: 900;
+}
+.c-r .content-r .headBox .div{
+  font-size: 26rpx;
+  line-height: 40rpx;
+}
+.c-r .two .r .ul{
+  margin: 26rpx 0;
+  border: 1px solid #d1d1d1;
+  border-radius: 8rpx;
+  padding: 4rpx;
+}
+.c-r .two .r .ul .li{
+  position: relative;
+  border-top: 1px solid #e1e1e1;
+}
+.c-r .two .r .ul .li:first-child {
+  border-top: none;
+}
+.c-r .two .r .ul .li .a{
+  display: block;
+  line-height: 40rpx;
+  padding: 20rpx 52rpx 20rpx 12rpx;
+  font-size: 26rpx;
+}
+.c-r .two .r .ul .li .i{
+  display: inline-block;
+  width: 26rpx;
+  height: 26rpx;
+  background: url('../../images/back.png') no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: 12rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.c-r .two .l{
+  border-radius: 8rpx;
+  padding: 12rpx;
+  color: #888;
+  line-height: 40rpx;
+  font-size: 26rpx;
+}

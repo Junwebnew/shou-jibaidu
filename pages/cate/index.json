@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "个人中心",
+    "navigationBarTextStyle": "white",
+	"enablePullDownRefresh":true,
+    "usingComponents": {
+        "consultation": "/components/consultation/consultation",
+		"headnav": "/components/headnav/headnav"
+    }
+}

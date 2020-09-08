@@ -1,0 +1,49 @@
+/* 自定义组件的css，在该自定义组件内部生效 (custom.css) */
+.paging{
+  padding: 40rpx  0;
+  text-align: center
+}
+.paging .a {
+  color: #777
+}
+
+.paging .pagination {
+  display: inline-block;
+  font-size: 0
+}
+
+.paging .pagination .li {
+  display: inline-block;
+  margin: 0 6rpx;
+  font-size: 28rpx;
+  /* background: #eee; */
+}
+
+.paging .pagination .li .a {
+  display: block;
+  border: solid 2rpx #e5e5e5;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  text-align: center
+}
+
+.paging .pagination .li .span {
+  display: block;
+  border: solid 2rpx #e5e5e5;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  text-align: center;
+	background: #f1f1f1;
+}
+
+.paging .jump-page {
+  display: inline-block;
+  font-size: 0;
+  margin-left: 100rpx
+}
+
+.paging .jump-page .li {
+  font-size: 28rpx
+}

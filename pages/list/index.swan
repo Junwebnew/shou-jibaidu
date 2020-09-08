@@ -1,0 +1,116 @@
+<!-- index.swan -->
+<headnav></headnav>
+<view class="container {{showHideIdx > 0 ? 'fixed' : '' }}">
+	<view class="min-search w">
+		<view class="min-search-up"> 
+			<view class="ss"> <text class="iconfont ico">&#xe61a;</text> </view>
+			<input type="text" value='{=optionParams.keys=}' bindinput='bindinputFunc' confirm-type='search' bindconfirm='goSearch' placeholder="请输入商标名、适用服务">
+			<view class="btn" bindtap='goSearch'>搜索</view>
+		</view>
+	</view>
+	<view >
+		<view class="four-box">
+			<view catchtap='selectSorder' data-idx ='1' class=' {{optionParams.sort == 1 ? "col" : ""}}'>
+				<text>热度 </text>
+				<view class="list-icon">
+					<text class="arrow-up {{(optionParams.sort == 1 && optionParams.order == 1 ) ? 'active' : '' }} "></text> 
+					<text class="arrow-down {{(optionParams.sort == 1 && optionParams.order == 2 ) ? 'active' : '' }} "></text>
+				</view>
+			</view>
+			<view catchtap='selectSorder' data-idx ='2' class=' {{optionParams.sort == 2 ? "col" : ""}}'>
+				<text>上架时间 </text>
+				<view class="list-icon">
+					<text class="arrow-up {{(optionParams.sort == 2 && optionParams.order == 1 ) ? 'active' : '' }} "></text> 
+					<text class="arrow-down {{(optionParams.sort == 2 && optionParams.order == 2 ) ? 'active' : '' }} "></text>
+				</view>
+			</view>
+			<view catchtap='selectSorder' data-idx ='3' class=' {{optionParams.sort == 3 ? "col" : ""}}'>
+				<text>金额排序  </text>
+				<view class="list-icon">
+					<text class="arrow-up {{(optionParams.sort == 3 && optionParams.order == 1 ) ? 'active' : '' }} "></text> 
+					<text class="arrow-down {{(optionParams.sort == 3 && optionParams.order == 2 ) ? 'active' : '' }} "></text>
+				</view>
+			</view>
+			<view catchtap='openDraw'>
+				<text class="col-warn">高级筛选</text>
+				<i class='iconfont col-warn'>&#xe626;</i>
+			</view>
+		</view>
+	</view>
+	<view class="min-h">
+		<view class="result">
+			<text s-if=" total > 0">
+				—— 为您查询到：{{total}} 条信息 ——
+			</text>
+			<text s-if=" total == -1">
+				正在查询中...
+			</text>
+			<text s-if=" total == 0">
+				暂未查询到相关信息！
+			</text>
+		</view>
+		<view class="recommend">
+			<view class="tmbox ul">
+				<view class="li" s-for='listData'>
+					<navigator url="/pages/info/index?id={{item.id}}">
+						<view class="picBox">
+							<image lazy-load='true' src="{{item.img}}" src="{{utils.getImg(item.trademarkPicId)}}" mode='aspectFit'></image>
+						</view>
+						<view class="item-b-box">
+							<view class='text-delic name'>
+								{{item.trademarkName}}
+							</view>
+							<view class="s">
+								<text>{{item.firstNum}}类 {{item.trademarkTypeName}}</text>
+							</view>
+						</view>
+						<view class="bottom-btns">
+							<view class='fl'>
+								<view class="fr f0" s-if='{{item.trademarkLike}}'>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'1')}}"  class='mark m3'>价</text>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'2')}}" class='mark m4'>精</text>
+									<text s-if="{{myUtils.indexFunc(item.trademarkLike,'3')}}" class='mark m5'>听</text>
+								</view>
+							</view>    
+							<view class="fr col-r ">
+								<text s-if="{{item.sellingPrice}}">￥{{item.sellingPrice}}</text>
+								<text s-else>面议</text>        
+							</view>   
+						</view>
+					</navigator>		
+				</view>
+			</view>
+		</view>
+	</view>
+	<pages s-if='{{total}}' url='{{pageurl}}'  totalPage='{{total}}'  pageSize='20'  pageNum='{{pageNum}}'></pages>
+	<draw show='{{isSHowDraw}}' likeTagsArr='{{likeTagsArr}}' wordNumber='{{wordNumber}}' tmTypeArr='{{tmTypeArr}}' obj='{{optionParams}}' allTags='{{allTags}}' bindmyevent="listener"></draw>
+  	<consultation></consultation>
+	<!-- <view class='bottom-banner'>
+		<view class="h3">商标转让介绍</view>
+		<view class="text">
+			{{description}}
+		</view>
+	</view> -->
+	<view class="copyright">©版权所有  成都权明星科技有限公司</view>
+</view>
+<!-- 定义SJS -->
+<import-sjs module="myUtils">
+		const initServerArr = function(str){
+
+			str = (str+'').replace(/null/g,"")
+			
+			if(/;,/.test(str)){
+				return str ? str.split(";,") : ["暂无"];
+			}
+			return str ? str.split(",") : ["暂无"];
+		}
+		const indexFunc = function(str,key){
+
+			return (str+'').indexOf(key) != -1
+		}
+
+		export default {
+			initServerArr: initServerArr,
+			indexFunc:indexFunc
+		};
+</import-sjs>
