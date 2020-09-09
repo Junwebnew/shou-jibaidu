@@ -1,11 +1,11 @@
 {
     "pages": [	
-		"pages/index/index",
 		"pages/service/index",
+		"pages/cate/index",
+		"pages/index/index",
 		"pages/leavemsg/index",
 		"pages/list/index",
 		"pages/info/index",
-		"pages/cate/index",
 		"pages/tools/index"
     ],
     "window": {

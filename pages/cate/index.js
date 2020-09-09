@@ -7,105 +7,45 @@ const app = getApp()
 Page({
     data: {
 		userInfo:{
-		}
+		},
+		slectIdx:0,
+		cateArr:[]
     },
     onLoad(option) {
-		//缓存有 storage
-		if(swan.getStorageSync('userInfo')){
-			this.setData({
-				userInfo:swan.getStorageSync('userInfo'),
-			});
-		}
-		else{
-			//没有storge,但是已登陆
-			if(app.Junstroge.get('token')){
-				this.axiosGetInfo()
-			}
-		}
+		this.initPage()
+		swan.getSystemInfo({
+            success: res => {
+                // console.log("设备信息1111111",res)
+				// this.setData({
+				// 	boxHeigt: res.windowHeight
+				// })
+            },
+            fail: err => {
+                // swan.showToast({
+                //     title: '获取失败'
+                // });
+            }
+        });
     },
 	onShow(){
-		// app.$auth.getToken()
-		// .then( res =>{
-		// 	console.log('909091111111111', res )
-		// })
+	
 		this.initSeo()
 	},
 	initPage(){
-		
-	},
-	//登录授权
-	getUserToken(){
-		this.isHasToken( (msg)=>{
-			// console.log('909091111111111', msg )
-			msg && this.axiosGetInfo()
-		})
-	},
-	//获取用户的信息并去修改
-	getUserInfo(cb){
-		swan.getUserInfo({
-            success: res => {
-                // 用户在首次使用小程序时拒绝授权，可使用此api在合适的业务时机提醒用户再次授权
-                // swan.openSetting({});
-				
-                let userInfo = res.userInfo;
-				swan.setStorageSync('userInfo',userInfo)
-                this.setData({
-					userInfo,
-                    // nickname: userInfo.nickName,
-                    // avatarUrl: userInfo.avatarUrl,
-                    // nameColor: 'active'
-                });
-				// console.log(this.data.userInfo)
-				this.updataInfo(userInfo)
-				// console.log('掺乎', typeof cb )
-
-				if( typeof cb == 'function')
-					cb && cb()
-            },
-            fail: err => {
-                console.log(err);
-                swan.showToast({
-                    title: '请先授权'
-                });
-				swan.openSetting({});
-            }
-        });
-	},
-	updataInfo(userInfo){
-		let params  ={
-			nickname:userInfo.nickName,
-			sex:userInfo.gender,
-			headImgUrl:userInfo.avatarUrl
-		}
-		app.$axios({url:'api-u/users/me?token?loading',data:params,type:"PUT"})
-			.then( res =>{
-				swan.showToast({
-					title: '更新成功',
-					icon: 'success'
-				});
-			})
-	},
-	axiosGetInfo(){
-		app.$axios({url:"api-u/users/get/usermsg?token"})
+		app.$axios('api-trans/trademark/transaction/hotClassify/front/getHotClassifyBindLabelList?position=1')
 			.then(res =>{
-				// console.log('个人信息',res.data)
-				if(res.code == 200){
-
-					let userInfo = {
-						nickName: res.data.headImgUrl ? res.data.nickname : '百度用户',
-						avatarUrl: res.data.headImgUrl || '../../images/logo-icon.png',
-						id: res.data.id
-					};
-					swan.setStorageSync('userInfo',userInfo)
-					this.setData({
-						userInfo
-					});
-				}
+				console.log(res.data)
+				this.setData({
+					cateArr:res.data
+				})
 			})
 	},
-	takeTel(){
-		app.takeTel()
-	},
+	slectIdxFunc(e){
+        let idx =  e.currentTarget.dataset.idx
+        this.setData({
+            slectIdx: idx
+        })
+    },
 	goPage(e){
 		// console.log(e)
 		let url = e.currentTarget.dataset.url
@@ -120,29 +60,6 @@ Page({
 			url:e.currentTarget.dataset.url
 		});
 	},
-	//点击列表前从这里过一次
-	isHasToken(cb){
-		app.$auth.getToken()
-			.then( res =>{
-				if(res){
-					cb && cb(res)
-				}
-			})
-	},
-	//下拉刷新
-	onPullDownRefresh(){
-        // 若要触发用户手动下拉刷新，在json文件中设置 "enablePullDownRefresh": true
-		this.getUserInfo( ()=>{
-			swan.stopPullDownRefresh({
-				success: res => {
-					console.log('stopPullDownRefresh success');
-				},
-				fail: err => {
-					console.log('stopPullDownRefresh fail', err);
-				}
-			});
-		})
-    },
     initSeo(){
         swan.setPageInfo({
             title: '个人中心-权明星',

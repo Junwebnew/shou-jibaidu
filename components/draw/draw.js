@@ -1,9 +1,5 @@
 // 自定义组件逻辑 (custom.js)
-import codeJson from '../../until/code.json'
-let codeArr = ['全部类型']
-	for(let i of codeJson){
-		codeArr.push(i.name)
-	}
+
 const app = getApp()
 	
 Component({
@@ -27,7 +23,6 @@ Component({
 		}
     },
     data: {
-		codeJson:codeArr,
 		arrIndex:0,
 		option:{},
 		params:{

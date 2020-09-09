@@ -1,7 +1,6 @@
 {
-    "navigationBarTitleText": "个人中心",
+    "navigationBarTitleText": "热门分类",
     "navigationBarTextStyle": "white",
-	"enablePullDownRefresh":true,
     "usingComponents": {
         "consultation": "/components/consultation/consultation",
 		"headnav": "/components/headnav/headnav"

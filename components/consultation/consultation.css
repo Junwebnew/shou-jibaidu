@@ -36,3 +36,31 @@
 button:after{
 	border: none;
 }
+.reg{
+	position: absolute;
+	right: 10rpx;
+	top:-200rpx ;
+	transition: all .4s;
+	text-align: right;
+	transform: translateX(0);
+}
+.reg.hide{
+	transform: translateX(100%);
+}	
+.reg .cancel{
+	width: 30rpx;
+	height: 30rpx;
+	margin: 0rpx 0rpx 4rpx 0;
+
+}
+.reg .tm{
+	width: 100rpx;
+	height: 100rpx;
+}
+.reg2{
+	top:-400rpx ;
+}
+.reg2 .tm{
+	width: 110rpx;
+	height: 110rpx;
+}

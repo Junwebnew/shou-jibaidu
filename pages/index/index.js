@@ -24,7 +24,8 @@ Page({
 		specilArr:[],
 		hotCateArr:[],
 		bigBanner: [],
-		listTmbrand:[]
+		listTmbrand:[],
+		showReg:true
     },
 	hasRequest:true,
 	onInit(){
@@ -174,7 +175,19 @@ Page({
                 message: '进入客服页面失败损失PV'
             });
         }
-    },
+	},
+	onPageScroll(e){
+		if(!this.data.showReg){
+			app.globalData.timer && clearTimeout(app.globalData.timer);
+
+			app.globalData.timer = setTimeout(()=>{
+				this.setData('showReg',true)
+			}, 500);
+		}
+		else{
+			this.setData('showReg',false)
+		}
+	},
     initSeo(){
         swan.setPageInfo({
             title: '商标注册查询网-商标注册流程-权明星',

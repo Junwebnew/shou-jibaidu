@@ -1,64 +1,49 @@
 <!-- index.swan -->
-<!-- <headnav show='false'></headnav> -->
-<view class="orderPage">
-	<view class="headBox" s-if='!userInfo.nickName'>
-		<view class="head fl">
-			<text class="iconfont">&#xe71d;</text>
-		</view>
-		<text class="words" bindtap='getUserToken' >头像授权</text>
-	</view>
-	<view class="headBox" s-else>
-		<view class="head fl">
-			<image src="{{userInfo.avatarUrl}}" mode="aspectFit"></image>
-		</view>
-		<text class="words" >{{userInfo.nickName}}</text>
-
-		<!-- <text s-if="userInfo.nickName == '百度用户'" class="autoName" bindtap='getUserInfo' >授权百度头像</text> -->
-		<!-- <text class="autoName" bindtap='getUserInfo'> <text class="iconfont">&#xe696;</text>更新信息</text> -->
-		<button class="autoName" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 
-			<text class="iconfont">&#xe696;</text>更新信息
-		</button>
-	</view>
-
-	<view class="line">
-		<view class="item" bindtap='goPage' data-url='/pages/user/order/index'>
-			<view>
-				<text class="iconfont label">&#xe64e;</text>
-				我的订单
-			</view>
-			<text class="iconfont right">&#xe623;</text>
-		</view>
-		<view class="item" bindtap='goPage' data-url='/pages/user/applicant/index'>
-			<view>
-				<text class="iconfont label">&#xe647;</text>
-				申请主体
-			</view>
-			<text class="iconfont right">&#xe623;</text>
-		</view>
-		<!-- <view class="item" bindtap='goPage' data-url='/pages/user/ticket/index' s-if="false">
-			<view>
-				<text class="iconfont label">&#xe622;</text>
-				优惠券
-			</view>
-			<text class="iconfont right">&#xe623;</text>
-		</view> -->
-		<view class="item" bindtap='goOtherPage' data-url='/pages/user/aboutus/index'>
-			<view>
-				<text class="iconfont label">&#xe696;</text>
-				关于权明星
-			</view>
-			<text class="iconfont right">&#xe614;</text>
-		</view>
-		<view class="item" bindtap='takeTel'>
-			<view>
-				<text class="iconfont label">&#xe671;</text>
-				服务热线
-			</view>
-			<text class="iconfont right">&#xe614;</text>
-		</view>
-		<view>
-			<navigator path="/pages/gg/index" target="miniProgram" version='release' app-id='FN6emYpplnfCfyS9ullQ5kc1OoORlxKX'>测试</navigator>
-		</view>
-	</view>
+<view class="all">
+    <view class="classify"  style='height:{{boxHeigt}}px'>
+        <view class="classifyBox">
+            <view class="c-l">
+                <!-- <view s-for='item,idx in navList'  class="li {{slectIdx == idx ? 'active' : '' }}" 
+					bindtap="slectIdxFunc" data-idx="{{idx}}"> 
+					<text class="p">{{item}}</text>
+                </view> -->
+				<view s-for='item,idx in cateArr'  class="li {{slectIdx == idx ? 'active' : '' }}">
+                    <view class='a' href="javascript:void(0)" bindtap="slectIdxFunc" data-idx="{{idx}}">
+                        <view class="p t">第{{item.tradeMarkTypeCode}}类</view>
+                        <view class="p">{{item.tradeMarkTypeName}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="c-r">
+				<!-- //推荐 -->
+				<view class="r-box">
+					<view class="tit" s-if='cateArr[slectIdx].tradeMarkTypeCode'> 
+						<navigator class="a" url="/pages/list/index?t={{cateArr[slectIdx].tradeMarkTypeCode}}">
+							<image src="/images/cate/c{{cateArr[slectIdx].tradeMarkTypeCode}}.png" mode='aspectFit'></image>
+							<text class="m">{{cateArr[slectIdx].tradeMarkTypeCode}}-{{cateArr[slectIdx].tradeMarkTypeName}}</text> 
+							<text class="iconfont ico">&#xe68b;</text>
+						</navigator>
+					</view>
+					<view class="ul" s-for="cateArr[slectIdx].bindLabelTypeList">
+						<view class="li">
+							<navigator class="a" 
+								url="/pages/list/index?t={{cateArr[slectIdx].tradeMarkTypeCode}}&t2={{item.labelTypeCode}}">
+								{{item.labelTypeName}}
+								<text class="iconfont ico">&#xe68b;</text>
+							</navigator>
+						</view>
+						<view class="ul2">
+							<view class="min text-delic" s-for="min,minIdx in item.hotBindLabelDTOList">
+								<navigator class="a text-delic" 
+								url="/pages/list/index?t={{cateArr[slectIdx].tradeMarkTypeCode}}&t2={{item.labelTypeCode}}&t3={{min.labelCode}}">
+								{{min.labelName}}
+								</navigator>
+							</view>
+						</view>
+					</view>
+                </view>
+            </view>
+        </view>
+    </view>
+  <consultation></consultation>
 </view>
-<consultation></consultation>

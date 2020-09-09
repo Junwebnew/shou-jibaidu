@@ -86,21 +86,5 @@ App({
 				});
 			}
 		});
-	},
-    getAllClassify(){
-        let res = swan.getStorageSync('clssify');
-        if(res && !(res instanceof Error)){
-            return res
-        }
-        else{
-            return until.$axios({url:`api-tm/tradeMarkType/trademark/queryTradeMark?level=1`})
-                    .then( res =>{
-                        swan.setStorageSync('clssify',res.data);
-                        return res.data
-                    })
-                    .catch(msg=>{
-                        return []
-                    })
-        }
-    }
+	}
 });

@@ -16,22 +16,25 @@ Page({
 					tit:'',
 					arr:[
 						{
-							img:"/images/s3.png",
+							img:"/images/service/1.png",
 							name:'商标智能注册',
-							desc:'智能系统快速提交，自助上传资料申请商标',
-							price:'￥300'
+							desc:'智能系统快速提交，自助申请',
+							price:'￥300',
+							for:'适用于:熟悉商标注册流程的业内人员'
 						},
 						{
-							img:"/images/s3.png",
+							img:"/images/service/2.png",
 							name:'商标顾问注册',
-							desc:'专业顾问一对一服务，全程代办，通过率更高',
-							price:'￥599'
+							desc:'顾问服务，全程代办，提高通过率',
+							price:'￥599',
+							for:'适用于:不太了解商标或者时间成本高的经营者'
 						},
 						{
-							img:"/images/s3.png",
+							img:"/images/service/3.png",
 							name:'商标加急注册',
-							desc:'商标加急提交，避免多耗时被抢注风险',
-							price:'￥799'
+							desc:'加急提交，避免多耗时被抢注风险',
+							price:'￥799',
+							for:"适用于:经营者想降低盲期的风险概率"
 						}
 					]
 				}
@@ -164,13 +167,13 @@ Page({
 					tit:'专利申请',
 					arr:[
 						{
-							img:"/images/s3.png",
+							img:"/images/service/f1.png",
 							name:'发明专利',
 							desc:'为产品创新和方法创新提供保护',
 							price:'面议'
 						},
 						{
-							img:"/images/s3.png",
+							img:"/images/service/f2.png",
 							name:'实用新型',
 							desc:'为产品结构形状微创新等提供保护',
 							price:'面议'
@@ -207,19 +210,16 @@ Page({
     },
     onLoad() {
         // 监听页面加载的生命周期函数
-		swan.getSystemInfo({
-            success: res => {
-                // console.log("设备信息1111111",res)
-				this.setData({
-					boxHeigt: res.windowHeight - 10 
-				})
-            },
-            fail: err => {
-                // swan.showToast({
-                //     title: '获取失败'
-                // });
-            }
-        });
+		// swan.getSystemInfo({
+        //     success: res => {
+        //         // console.log("设备信息1111111",res)
+		// 		this.setData({
+		// 			boxHeigt: res.windowHeight - 10 
+		// 		})
+        //     },
+        //     fail: err => {
+        //     }
+        // });
     },
     onShow(){
         this.initSeo()

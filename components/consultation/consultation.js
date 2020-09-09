@@ -5,10 +5,25 @@ Component({
         bool: {
             type: Boolean,
             value: true,
+		},
+		showReg: {
+            type: Boolean,
+            value: true,
+        }
+	},
+	pageLifetimes: {
+        show: function() {
+		// 组件所在的页面被展示时触发
+			this.setData('hideLogo',true)
+        },
+        hide: function() {
+		// 组件所在的页面被隐藏时触发
+			
         }
     },
     data: {
-        age: 1
+		age: 1,
+		hideLogo:false,
     },
     methods: {
         takeTel(){
@@ -22,7 +37,10 @@ Component({
                     });
                 }
             });
-        },
+		},
+		hideregFunc(){
+			this.setData('hideLogo',false)
+		},
         contactCB(e) {
             // console.log(e.detail); // 输出：{errMsg: 'enterContact:ok'}
             // 进入客服会话页面成功，可进行自己的业务逻辑
@@ -39,6 +57,6 @@ Component({
                     message: '进入客服页面失败损失PV'
                 });
             }
-        },
-    }
+		}
+	}
 });

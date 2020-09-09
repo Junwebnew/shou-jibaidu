@@ -1,12 +1,17 @@
 <!-- 自定义组件内部的模板 (custom.swan) -->
 <view>
     <view class="fixedNav">
-        <!-- <navigator url="/pages/index/index" s-if='bool != "false" ' class='i-b' open-type='switchTab'>
-            <image src="../../images/home.png" alt="top" mode='widthFix'></image>
-        </navigator>
-        <view bindtap='takeTel' class='i-b'>
-            <image src="../../images/tel.png" alt="top" mode='widthFix'></image>
-        </view> -->
+       
+        <view class="reg reg2 {{ (showReg && hideLogo) ? '' : 'hide'}}">
+			<image src="/images/cancel.png" class="cancel" catchtap='hideregFunc'></image>
+            <image src="/images/reg-r1.png" mode='aspectFit' class="tm"></image>
+        </view>
+
+		<view class="reg {{(showReg && hideLogo) ? '' : 'hide'}}">
+			<image src="/images/cancel.png" class="cancel" catchtap='hideregFunc'></image>
+            <image src="/images/reg-r.png" mode='aspectFit' class="tm"></image>
+        </view>
+
         <button open-type='contact' bindcontact="contactCB" class="box">
             <image src="../../images/zixun.png" alt="top" mode='widthFix'></image>
             <view class="fr words">
